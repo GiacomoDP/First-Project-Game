@@ -20,7 +20,15 @@ let playerImgHeight = 120
 const pikachuSpeedValue = 15
 let pikachuGoingLeft = false
 let pikachuGoingRight = false 
-
+let obstacleImgX = 1450
+let obstacleImgY = Math.floor(Math.random() * canvas.height)
+//let obstacleImgY = 100
+let obstacleImgWidth = 40
+let obstacleImgHeight = 40 
+let obstacleSpeed = 5
+let obstacleArray = []
+let key 
+let animationId
 
 //IMAGES
 const bgImg = new Image();
@@ -29,35 +37,54 @@ bgImg.src = "../images/background.jpg";
 const playerImg = new Image();
 playerImg.src ="../images/pikachu.png";
 
+const obstacleImg = new Image();
+obstacleImg.src ="../images/logo-dc.png"
+
+//class Obstacle {
+  //  constructor() {
+    //    this.width = obstacleImgWidth;
+      //  this.speed = obstacleSpeed
+    //}
+
+//}
+
 
 //FUNCTIONS
 function pikachuMovement (event) {
-    if (event.key === "ArrowRight" ) {
+    if (event.key === "ArrowRight" && playerImgX <= 1375 ) {
         playerImgX = playerImgX + pikachuSpeedValue
-    } else if (event.key === "ArrowLeft") {
+    } else if (event.key === "ArrowLeft" && playerImgX >= 10) {
         playerImgX = playerImgX - pikachuSpeedValue
 }
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    //if (pikachuGoingLeft) {
-      //  if (playerImgX > 0) {
-    //playerImgX -= pikachuSpeedValue;
-      //  }
-    //} else if (pikachuGoingRight) {
-      //  if (playerImgX < canvasWidth - playerImgWidth) {
-        //    playerImgX += pikachuSpeedValue;
-        //}
-    //}
+ if (event.key === "ArrowDown" && playerImgY <= 575 ) {
+     playerImgY = playerImgY + pikachuSpeedValue
+ } else if (event.key === "ArrowUp" && playerImgY >= -5 ) {
+     playerImgY = playerImgY - pikachuSpeedValue
+ }
 }
 
+function obstacle () {
+if (animationId % 100 === 0) {
+    obstacleArray.push([obstacleImg, obstacleImgX, obstacleImgY, obstacleImgWidth, obstacleImgHeight])
+} 
+}
+function drawObstacle () {
+obstacleArray.forEach(element => {
+    ctx.drawImage(element[0], element[1], element[2], element[3], element[4])
+    element[1] = element[1] - obstacleSpeed
+});
+}
+function animate () {
+    console.log("fdssssssss")
+    ctx.drawImage(bgImg, 0, 0, canvasWidth, canvasHeight)
+    ctx.drawImage(playerImg, playerImgX, playerImgY, playerImgWidth, playerImgHeight)
+    obstacle();
+    //pikachuMovement(key);
+    drawObstacle ();
+    animationId = requestAnimationFrame(animate)
+
+
+}
 
 
 
@@ -67,19 +94,23 @@ function startGame () {
  canvas.style.display = "block";
 
 // draw canvas
-ctx.drawImage(bgImg, 0, 0, canvasWidth, canvasHeight)
+//ctx.drawImage(bgImg, 0, 0, canvasWidth, canvasHeight)
 
 
 // draw pikachu
-ctx.drawImage(playerImg, playerImgX, playerImgY, playerImgWidth, playerImgHeight)
-//ctx.fillRect(playerImgX, playerImgY, playerImgWidth, playerImgHeight)
+//ctx.drawImage(playerImg, playerImgX, playerImgY, playerImgWidth, playerImgHeight)
 
+//draw obstacle
+//ctx.drawImage(obstacleImg, obstacleImgX, obstacleImgY, obstacleImgWidth, obstacleImgHeight)
+
+//ctx.fillRect(playerImgX, playerImgY, playerImgWidth, playerImgHeight)
+//pikachuInCanvas();
 
 
 if (gameOver) {
     cancelAnimationFrame(intervalId)
 } else {
-    animationId = requestAnimationFrame(startGame)
+     requestAnimationFrame(animate)
 }
 }
 
@@ -94,7 +125,9 @@ window.addEventListener("load", ()=>{
         startGame();
     
     })
+    window.addEventListener("keydown", (key) => {pikachuMovement(key)})
 
-    document.addEventListener("keydown", pikachuMovement)
+    //key = document.addEventListener("keydown", pikachuMovement)
+    console.log({key})
 })
 
