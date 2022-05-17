@@ -17,9 +17,9 @@ let playerImgX = 10
 let playerImgY = 500
 let playerImgWidth = 130
 let playerImgHeight = 120
-
-let moveRight = false
-let moveLeft = false 
+const pikachuSpeedValue = 15
+let pikachuGoingLeft = false
+let pikachuGoingRight = false 
 
 
 //IMAGES
@@ -30,8 +30,36 @@ const playerImg = new Image();
 playerImg.src ="../images/pikachu.png";
 
 
-
 //FUNCTIONS
+function pikachuMovement (event) {
+    if (event.key === "ArrowRight" ) {
+        playerImgX = playerImgX + pikachuSpeedValue
+    } else if (event.key === "ArrowLeft") {
+        playerImgX = playerImgX - pikachuSpeedValue
+}
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    //if (pikachuGoingLeft) {
+      //  if (playerImgX > 0) {
+    //playerImgX -= pikachuSpeedValue;
+      //  }
+    //} else if (pikachuGoingRight) {
+      //  if (playerImgX < canvasWidth - playerImgWidth) {
+        //    playerImgX += pikachuSpeedValue;
+        //}
+    //}
+}
+
+
+
 
 function startGame () {
  
@@ -41,8 +69,11 @@ function startGame () {
 // draw canvas
 ctx.drawImage(bgImg, 0, 0, canvasWidth, canvasHeight)
 
+
 // draw pikachu
 ctx.drawImage(playerImg, playerImgX, playerImgY, playerImgWidth, playerImgHeight)
+//ctx.fillRect(playerImgX, playerImgY, playerImgWidth, playerImgHeight)
+
 
 
 if (gameOver) {
@@ -58,8 +89,12 @@ if (gameOver) {
 window.addEventListener("load", ()=>{
     canvas.style.display = "none";
     endGame.style.display = "none";
+
     startBtn.addEventListener("click", () =>{
         startGame();
+    
     })
+
+    document.addEventListener("keydown", pikachuMovement)
 })
 
