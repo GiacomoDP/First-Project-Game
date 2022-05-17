@@ -21,7 +21,7 @@ const pikachuSpeedValue = 15
 let pikachuGoingLeft = false
 let pikachuGoingRight = false 
 let obstacleImgX = 1450
-let obstacleImgY = Math.floor(Math.random() * canvas.height)
+let obstacleImgY = 50 + Math.floor(Math.random() * (canvas.height - 100));
 //let obstacleImgY = 100
 let obstacleImgWidth = 40
 let obstacleImgHeight = 40 
@@ -65,7 +65,8 @@ function pikachuMovement (event) {
 
 function obstacle () {
 if (animationId % 100 === 0) {
-    obstacleArray.push([obstacleImg, obstacleImgX, obstacleImgY, obstacleImgWidth, obstacleImgHeight])
+    var dynamicPosY= 50 + Math.floor(Math.random() * (canvas.height - 100));
+    obstacleArray.push([obstacleImg, obstacleImgX, dynamicPosY, obstacleImgWidth, obstacleImgHeight])
 } 
 }
 function drawObstacle () {
