@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" />
     
-    <title>Document</title>
+    <title>Italian Pikachu</title>
 </head>
 <body>
     <div>
-
+        <audio autoplay loop>
+            <source src="101-opening.mp3" type="sound" />
+          </audio>
         <!-- SPLASH SCREEN -->
         <div id="start" class="game-intro">
             <img src="images/italian pikachu.png" width="1800" height="900" />
@@ -19,15 +21,16 @@
 
         <!-- CANVAS / GAME SCREEN -->
         <div id="game-board">
-            <span id="score">Score: 0</span>
-        <canvas id="canvas" width="1500" height="700" ></canvas>
+           <canvas id="canvas" width="1500" height="700" ></canvas>
         </div>
 
 
         <!-- GAME OVER -->
         <div id="end-game">
+            <span id="score">Score: 0</span>
         <button id="restart-btn">RestartGame</button>
         </div>
+        
 
 
 

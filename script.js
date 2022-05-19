@@ -22,29 +22,29 @@ let pikachuGoingLeft = false
 let pikachuGoingRight = false 
 let obstacleImgX = 1450
 let score = 0
-//let obstacleImgY = 100
 let obstacleImgWidth = 40
 let obstacleImgHeight = 40 
 let obstacleSpeed = 5
 let obstacleArray = []
-let pizzaImgWidth = 40
-let pizzaImgHeigth = 50
+let pizzaImgWidth = 70
+let pizzaImgHeigth = 80
 
 ///let dynamicPosY= 50 + Math.floor(Math.random() * (canvas.height - 100));
 
 //IMAGES
 const bgImg = new Image();
-bgImg.src = "../images/background.jpg";
+bgImg.src = "./images/background.jpg";
 
 const playerImg = new Image();
-playerImg.src ="../images/pikachu.png";
+playerImg.src ="./images/pikachu.png";
 
 const obstacleImg = new Image();
-obstacleImg.src ="../images/logo-dc.png";
+obstacleImg.src ="./images/logo-dc.png";
 
 const pizzaImg = new Image();
-pizzaImg.src="../images/pizza.png"
+pizzaImg.src="./images/pizza.png"
 
+//SOUND
 
 
 
@@ -131,33 +131,14 @@ function restart () {
     endGame.style.display = "none";
     gameOver = false
     dcArray = [
-        {img:obstacleImg, x: 1450, y:300, width:obstacleImgWidth , height:obstacleImgHeight},
-        {img:obstacleImg, x: 1450, y:400, width:obstacleImgWidth , height:obstacleImgHeight},
-        {img:obstacleImg, x: 1450, y:500, width:obstacleImgWidth , height:obstacleImgHeight},
-        {img:obstacleImg, x: 1450, y:200, width:obstacleImgWidth , height:obstacleImgHeight},
+        {img:obstacleImg, x: 1500, y:300, width:obstacleImgWidth , height:obstacleImgHeight},
+        {img:obstacleImg, x: 1600, y:400, width:obstacleImgWidth , height:obstacleImgHeight},
+        {img:obstacleImg, x: 1700, y:500, width:obstacleImgWidth , height:obstacleImgHeight},
+        {img:obstacleImg, x: 1750, y:200, width:obstacleImgWidth , height:obstacleImgHeight},
     ]
     
 }
 
-
-
-
-
-//function obstacle () {
-
-  //  let dynamicPosY = 50 + Math.floor(Math.random() * (canvas.height - 100));
-//if (animationId % 100 === 0) {
-    //console.log(obstacleArray)
-  //  obstacleArray.push([obstacleImg, obstacleImgX, dynamicPosY, obstacleImgWidth, obstacleImgHeight])
-//} 
-
-//}
-//function drawObstacle () {
-///obstacleArray.forEach(element => {
-   // ctx.drawImage(element[0], element[1], element[2], element[3], element[4])
-    //element[1] = element[1] - obstacleSpeed
-//});
-//}
 function animate () {
     ctx.drawImage(bgImg, 0, 0, canvasWidth, canvasHeight)
     ctx.drawImage(playerImg, playerImgX, playerImgY, playerImgWidth, playerImgHeight)
