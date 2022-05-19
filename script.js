@@ -44,6 +44,9 @@ obstacleImg.src ="./images/logo-dc.png";
 const pizzaImg = new Image();
 pizzaImg.src="./images/pizza.png"
 
+const finalImg = new Image();
+finalImg.src ="./images/pikachu-triste.png"
+
 //SOUND
 
 const bgAudio = new Audio();
@@ -132,6 +135,7 @@ function drawObstacle () {
 function restart () {
     canvas.style.display = "block";
     endGame.style.display = "none";
+    ctx.drawImage(finalImg)
     gameOver = false
     dcArray = [
         {img:obstacleImg, x: 1500, y:300, width:obstacleImgWidth , height:obstacleImgHeight},
@@ -161,7 +165,7 @@ function animate () {
 }
 
 function startGame () {
- 
+
  startScreen.style.display = "none";
  canvas.style.display = "block";
  bgAudio.play();
