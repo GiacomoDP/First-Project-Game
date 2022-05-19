@@ -46,7 +46,9 @@ pizzaImg.src="./images/pizza.png"
 
 //SOUND
 
-
+const bgAudio = new Audio();
+bgAudio.src ="./sound/101-opening.mp3"
+bgAudio.volume = 0.2
 
 
 //FUNCTIONS
@@ -120,6 +122,7 @@ function drawObstacle () {
             gameOver = true
             canvas.style.display = "none";
             endGame.style.display = "block";
+            score = 0
         console.log("collision")
     
 }
@@ -142,7 +145,12 @@ function restart () {
 function animate () {
     ctx.drawImage(bgImg, 0, 0, canvasWidth, canvasHeight)
     ctx.drawImage(playerImg, playerImgX, playerImgY, playerImgWidth, playerImgHeight)
-    
+    ctx.font= "30px verdana"
+    ctx.fillText(`score:${score}`, 30, 30)
+    ctx.fillStyle= "green" 
+
+
+
    drawPizza();
    drawObstacle();
   
@@ -156,6 +164,7 @@ function startGame () {
  
  startScreen.style.display = "none";
  canvas.style.display = "block";
+ bgAudio.play();
  if (gameOver) {
     cancelAnimationFrame(intervalId)
 } else {
