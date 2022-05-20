@@ -17,7 +17,7 @@ let playerImgX = 10;
 let playerImgY = 500;
 let playerImgWidth = 130;
 let playerImgHeight = 120;
-let pikachuSpeedValue = 6;
+let pikachuSpeedValue = 12;
 let pikachuGoingLeft = false;
 let pikachuGoingRight = false;
 //let obstacleImgX = 1450
@@ -78,6 +78,13 @@ let dcArray = [
   {
     img: obstacleImg,
     x: 1750,
+    y: 200,
+    width: obstacleImgWidth,
+    height: obstacleImgHeight,
+  },
+  {
+    img: obstacleImg,
+    x: 1500,
     y: 200,
     width: obstacleImgWidth,
     height: obstacleImgHeight,
@@ -233,6 +240,13 @@ function restart() {
       width: obstacleImgWidth,
       height: obstacleImgHeight,
     },
+    {
+        img: obstacleImg,
+        x: 1500,
+        y: 200,
+        width: obstacleImgWidth,
+        height: obstacleImgHeight,
+      },
   ];
   startGame();
 }
