@@ -26,8 +26,8 @@ let obstacleImgWidth = 40;
 let obstacleImgHeight = 40;
 let obstacleSpeed = 10;
 let obstacleArray = [];
-let pizzaImgWidth = 70;
-let pizzaImgHeigth = 80;
+let pizzaImgWidth = 120;
+let pizzaImgHeigth = 120;
 
 ///let dynamicPosY= 50 + Math.floor(Math.random() * (canvas.height - 100));
 
