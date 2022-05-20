@@ -102,7 +102,7 @@ let pizzaArray = [
   {
     img: pizzaImg,
     x: 700,
-    y: 250,
+    y: 425,
     width: pizzaImgWidth,
     height: pizzaImgHeigth,
   },
